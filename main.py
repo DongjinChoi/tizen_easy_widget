@@ -49,8 +49,8 @@ def upload():
     )
 
     # The public URL can be used to directly access the uploaded file via HTTP.
-    #return blob.public_url
-    return redirect(url_for('/'))
+    return blob.public_url
+    #return redirect(url_for('/'))
 
 @app.errorhandler(500)
 def server_error(e):
