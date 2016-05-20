@@ -10,7 +10,7 @@ app.config['DEBUG'] = True
 # the App Engine WSGI application server.
 
 # Configure this environment variable via app.yaml
-RENDER_STATIC_FOLDER_NAME = "static\/render-img\/"
+RENDER_STATIC_FOLDER_NAME = "static/render-img/"
 CLOUD_STORAGE_BUCKET = os.environ['CLOUD_STORAGE_BUCKET']
 # [end config]
 
@@ -50,7 +50,7 @@ def upload():
 
     # The public URL can be used to directly access the uploaded file via HTTP.
     #return blob.public_url
-    return redirect(url_for('index'))
+    return redirect(url_for('/'))
 
 @app.errorhandler(500)
 def server_error(e):
