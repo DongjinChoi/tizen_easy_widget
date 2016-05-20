@@ -1,4 +1,8 @@
-from flask import Flask
+import logging
+import os
+
+from flask import Flask, request
+from gcloud import storage
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
