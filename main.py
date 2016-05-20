@@ -10,6 +10,7 @@ app.config['DEBUG'] = True
 # the App Engine WSGI application server.
 
 # Configure this environment variable via app.yaml
+STATIC_FOLDER_NAME = "static/"
 CLOUD_STORAGE_BUCKET = os.environ['CLOUD_STORAGE_BUCKET']
 # [end config]
 
@@ -40,7 +41,7 @@ def upload():
     bucket = gcs.get_bucket(CLOUD_STORAGE_BUCKET)
 
     # Create a new blob and upload the file's content.
-    blob = bucket.blob(uploaded_file.filename)
+    blob = bucket.blob(STATIC_FOLDER_NAME + uploaded_file.filename)
 
     blob.upload_from_string(
         uploaded_file.read(),
