@@ -49,8 +49,10 @@ def upload():
     )
 
     # The public URL can be used to directly access the uploaded file via HTTP.
-    return blob.public_url
+    #return blob.public_url
     #return redirect(url_for('/'))
+    flash('New entry was successfully posted')
+    return redirect(url_for('index'))
 
 @app.errorhandler(500)
 def server_error(e):
