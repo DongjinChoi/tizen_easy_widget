@@ -1,7 +1,7 @@
 import logging
 import os
 
-from flask import Flask, request
+from flask import Flask, request, url_for
 from gcloud import storage
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -35,18 +35,18 @@ def upload():
         return 'No file uploaded.', 400
 
     # Create a Cloud Storage client.
-    gcs = storage.Client()
+    #gcs = storage.Client()
 
     # Get the bucket that the file will be uploaded to.
-    bucket = gcs.get_bucket(CLOUD_STORAGE_BUCKET)
+    #bucket = gcs.get_bucket(CLOUD_STORAGE_BUCKET)
 
     # Create a new blob and upload the file's content.
-    blob = bucket.blob(RENDER_STATIC_FOLDER_NAME + uploaded_file.filename)
+    #blob = bucket.blob(RENDER_STATIC_FOLDER_NAME + uploaded_file.filename)
 
-    blob.upload_from_string(
-        uploaded_file.read(),
-        content_type=uploaded_file.content_type
-    )
+    #blob.upload_from_string(
+    #    uploaded_file.read(),
+    #    content_type=uploaded_file.content_type
+    #)
 
     # The public URL can be used to directly access the uploaded file via HTTP.
     #return blob.public_url
