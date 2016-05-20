@@ -1,8 +1,10 @@
 import logging
 import os
 
-from flask import Flask, request, url_for
+from flask import Flask, request, url_for, flash, session, redirect
 from gcloud import storage
+#from PIL import Image as PILImage
+
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
@@ -18,6 +20,8 @@ CLOUD_STORAGE_BUCKET = os.environ['CLOUD_STORAGE_BUCKET']
 #def hello():
 #    """Return a friendly HTTP greeting."""
 def index():
+    #im=PILImage.new("RGB",(256,256),(102,153,255))
+    #print(im)
     return """
     Upload Image <br>
 <form method="POST" action="/upload" enctype="multipart/form-data">
@@ -51,7 +55,7 @@ def upload():
     # The public URL can be used to directly access the uploaded file via HTTP.
     #return blob.public_url
     #return redirect(url_for('/'))
-    flash('New entry was successfully posted')
+    #flash('New entry was successfully posted')
     return redirect(url_for('index'))
 
 @app.errorhandler(500)
