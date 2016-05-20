@@ -1,13 +1,14 @@
-#runtime: python27
-#api_version: 1
-
-runtime: python
-vm: true
-entrypoint: gunicorn -b :$PORT main:app
+runtime: python27
+api_version: 1.0.1
 threadsafe: yes
 
-runtime_config:
-  python_version: 3
+#runtime: python
+#vm: true
+#entrypoint: gunicorn -b :$PORT main:app
+#threadsafe: yes
+
+#runtime_config:
+#  python_version: 3
 
 #[START env]
 env_variables:
